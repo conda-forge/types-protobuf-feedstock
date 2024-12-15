@@ -11,7 +11,7 @@ source:
   sha256: 2ebcadb8ab3ef2e3e2f067e0882906d64ba0dc65fc5b0fd7a8b692315b4a0be9
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
@@ -19,12 +19,14 @@ requirements:
   host:
     - pip
     - setuptools
-    - python >=3.6
+    - python {{ python_min }}
   run:
-    - python >=3.6
+    - python >={{ python_min }}
     - types-futures
 
 test:
+  requires:
+    - python {{ python_min }}
   commands:
     - test -f $SP_DIR/google-stubs/protobuf/__init__.pyi
 
