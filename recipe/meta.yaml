@@ -11,7 +11,7 @@ source:
   sha256: 641002611ff87dd9fedc38a39a29cacb9907ae5ce61489b53e99ca2074bef764
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
@@ -33,6 +33,7 @@ test:
 
 about:
   home: https://github.com/python/typeshed
+  dev_url: https://github.com/python/typeshed
   summary: Typing stubs for protobuf
   license: Apache-2.0 AND MIT
   license_file: LICENSE
