@@ -9,6 +9,8 @@ Package license: Apache-2.0 AND MIT
 
 Summary: Typing stubs for protobuf
 
+Development: https://github.com/python/typeshed
+
 Current build status
 ====================
 
