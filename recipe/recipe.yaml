@@ -1,0 +1,51 @@
+schema_version: 1
+
+context:
+  name: types-protobuf
+  version: 6.32.1.20260221
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/${{ name | replace('-', '_') }}-${{ version }}.tar.gz
+  sha256: 6d5fb060a616bfb076cbb61b4b3c3969f5fc8bec5810f9a2f7e648ee5cbcbf6e
+
+build:
+  number: 0
+  noarch: python
+  script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+
+requirements:
+  host:
+    - pip
+    - setuptools
+    - python >=${{ python_min }}
+  run:
+    - python >=${{ python_min }}
+    - types-futures
+
+tests:
+  - requirements:
+      run:
+        - pip
+        - python >=${{ python_min }}
+    script:
+      - pip check
+
+  - package_contents:
+      site_packages:
+        - google-stubs/protobuf/__init__.pyi
+
+about:
+  summary: Typing stubs for protobuf
+  license: Apache-2.0 AND MIT
+  license_file: LICENSE
+  homepage: https://github.com/python/typeshed
+  repository: https://github.com/python/typeshed
+
+extra:
+  recipe-maintainers:
+    - fhoehle
+    - conda-forge/mypy
