@@ -13,7 +13,7 @@ source:
   sha256: 6d5fb060a616bfb076cbb61b4b3c3969f5fc8bec5810f9a2f7e648ee5cbcbf6e
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
@@ -21,7 +21,7 @@ requirements:
   host:
     - pip
     - setuptools
-    - python >=${{ python_min }}
+    - python ${{ python_min }}.*
   run:
     - python >=${{ python_min }}
     - types-futures
@@ -30,7 +30,7 @@ tests:
   - requirements:
       run:
         - pip
-        - python >=${{ python_min }}
+        - python ${{ python_min }}.*
     script:
       - pip check
 
