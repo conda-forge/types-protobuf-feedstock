@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: types-protobuf
-  version: "7.35.1.20260827"
+  version: "7.35.1.20260906"
 
 package:
   name: ${{ name|lower }}
@@ -10,7 +10,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/${{ name | replace('-', '_') }}-${{ version }}.tar.gz
-  sha256: 5a98c18177cfd968d6a0de55ecfc4221aa829ef88bcd86104298e028516b04af
+  sha256: efd1a3862d4c967dad5512ef8d56b1530ac84f182c41735b94004756518c4998
 
 build:
   number: 0
